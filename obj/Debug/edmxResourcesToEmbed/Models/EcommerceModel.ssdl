@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClothingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_admin">
+    <Key>
+      <PropertyRef Name="Admin_Id" />
+    </Key>
+    <Property Name="Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="ConfirmPassword" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tb_feedback">
+    <Key>
+      <PropertyRef Name="feed_id" />
+    </Key>
+    <Property Name="feed_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="feedback" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_invoice">
+    <Key>
+      <PropertyRef Name="in_id" />
+    </Key>
+    <Property Name="in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" />
+    <Property Name="in_totalbill" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_kid">
+    <Key>
+      <PropertyRef Name="kid_id" />
+    </Key>
+    <Property Name="kid_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="price" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="image" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_men">
+    <Key>
+      <PropertyRef Name="men_id" />
+    </Key>
+    <Property Name="men_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="price" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="image" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_user">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varbinary" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="ConfirmPassword" Type="varbinary" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tb_women">
+    <Key>
+      <PropertyRef Name="women_id" />
+    </Key>
+    <Property Name="women_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="price" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="image" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_tb_invoice_tb_user">
+    <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1" />
+    <End Role="tb_invoice" Type="Self.tb_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_user">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="tb_invoice">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ClothingDBModelStoreContainer">
+    <EntitySet Name="tb_admin" EntityType="Self.tb_admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_feedback" EntityType="Self.tb_feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_invoice" EntityType="Self.tb_invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_kid" EntityType="Self.tb_kid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_men" EntityType="Self.tb_men" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_user" EntityType="Self.tb_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_women" EntityType="Self.tb_women" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_invoice_tb_user" Association="Self.FK_tb_invoice_tb_user">
+      <End Role="tb_user" EntitySet="tb_user" />
+      <End Role="tb_invoice" EntitySet="tb_invoice" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

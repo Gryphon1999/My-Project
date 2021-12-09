@@ -1,0 +1,38 @@
+﻿@model List<Web_App_Clothing_Ecommerce.Models.tb_women>
+@{
+    ViewBag.Title = "FemalTable";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+    <div class="row mt-4">
+        <h1>Products Table</h1>
+        <br />
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.name</td>
+                        <td>@item.description</td>
+                        <td>@item.quantity</td>
+                        <td>@item.price</td>
+                        <td><img src="~/Image/@item.image" alt="@item.image" width="50" height="50" /></td>
+                        <td>
+                            <a href="@Url.Action("W_Edit","Admin",new{id=item.women_id})" class="btn btn-success">Edit</a>
+                            <a href="@Url.Action("W_Delete","Admin",new {item.women_id})" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

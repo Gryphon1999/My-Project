@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Web App for E-commerce Clothing</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <link href="~/Style/css/main.css" rel="stylesheet" />
+    <link href="~/Style/css/style.css" rel="stylesheet" />
+    <link href="~/Style/css/Search.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark navbar-fixed-top">
+        <a class="navbar-brand" href="~/User/MenProduct">Web App for Clothing Ecommerce</a>
+        <!-- Links -->
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item active px-2">
+                <a class="nav-link" href="~/User/WomenProduct">Women's Products</a>
+            </li>
+            <li class="nav-item active px-2">
+                <a class="nav-link" href="~/User/KidProduct">Kid's Products</a>
+            </li>
+            <li class="nav-item dropdown active px-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Comparison
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="~/User/com_men">Men Product</a>
+                    <a class="dropdown-item" href="~/User/com_women">Women Product</a>
+                    <a class="dropdown-item" href="~/User/com_kid">Kid Product</a>
+                </div>
+            </li>
+            <li class="nav-item active px-2">
+                <a class="nav-link" href="~/User/cart">Cart</a>
+            </li>
+            <li class="nav-item active px-2">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+        </ul>
+    </nav>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Web_App_Clothing_Ecommerce.Models.tb_kid>
+@{
+    ViewBag.Title = "KidProduct";
+}
+
+<h2 style="text-align:center;">Kid's Products</h2>
+@foreach (var item in Model)
+{
+    <section class="on-sale mt-5">
+        <div class="container">
+            <div class="row">
+                <!-- product1 -->
+                <div class="col-md-3">
+                    <div class="product-top">
+                        <img src="@Url.Content(item.image)" />
+                        <div class="overlay-right">
+                            <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                                <i class="fa fa-heart-o"></i>
+                            </button>
+                            <a href="@Url.Action("Kid_Cart","User",new{id=item.kid_id})" class="btn btn-secondary" title="Add to Cart">
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-bottom text-center">
+                        <h3>@item.name</h3>
+                        <h5>Rs @item.price</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

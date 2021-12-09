@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Web_App_Clothing_Ecommerce.Models.tb_kid>
+
+@{
+    ViewBag.Title = "KidTable";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Kid Products Table</h2>
+
+<table class="table table-bordered table-striped">
+    <tr class="table-dark">
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="table-hover table-bordered">
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                <img src="~/Image/@item.image" alt="@item.image" width="50" height="50" />
+            </td>
+            <td>
+                <a href="@Url.Action("K_Edit","Admin",new{id=item.kid_id})" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("K_Delete","Admin",new {item.kid_id})" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+

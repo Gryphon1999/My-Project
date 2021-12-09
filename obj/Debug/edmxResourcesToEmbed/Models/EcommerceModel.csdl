@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClothingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ClothingDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_admin" EntityType="ClothingDBModel.tb_admin" />
+    <EntitySet Name="tb_kid" EntityType="ClothingDBModel.tb_kid" />
+    <EntitySet Name="tb_men" EntityType="ClothingDBModel.tb_men" />
+    <EntitySet Name="tb_user" EntityType="ClothingDBModel.tb_user" />
+    <EntitySet Name="tb_women" EntityType="ClothingDBModel.tb_women" />
+    <EntitySet Name="tb_feedback" EntityType="ClothingDBModel.tb_feedback" />
+    <EntitySet Name="tb_invoice" EntityType="ClothingDBModel.tb_invoice" />
+    <AssociationSet Name="FK_tb_invoice_tb_user" Association="ClothingDBModel.FK_tb_invoice_tb_user">
+      <End Role="tb_user" EntitySet="tb_user" />
+      <End Role="tb_invoice" EntitySet="tb_invoice" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tb_admin">
+    <Key>
+      <PropertyRef Name="Admin_Id" />
+    </Key>
+    <Property Name="Admin_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_kid">
+    <Key>
+      <PropertyRef Name="kid_id" />
+    </Key>
+    <Property Name="kid_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_men">
+    <Key>
+      <PropertyRef Name="men_id" />
+    </Key>
+    <Property Name="men_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_user">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="Binary" MaxLength="50" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmPassword" Type="Binary" MaxLength="50" FixedLength="false" />
+    <NavigationProperty Name="tb_invoice" Relationship="ClothingDBModel.FK_tb_invoice_tb_user" FromRole="tb_user" ToRole="tb_invoice" />
+  </EntityType>
+  <EntityType Name="tb_women">
+    <Key>
+      <PropertyRef Name="women_id" />
+    </Key>
+    <Property Name="women_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_feedback">
+    <Key>
+      <PropertyRef Name="feed_id" />
+    </Key>
+    <Property Name="feed_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_invoice">
+    <Key>
+      <PropertyRef Name="in_id" />
+    </Key>
+    <Property Name="in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" />
+    <Property Name="in_totalbill" Type="Int32" />
+    <NavigationProperty Name="tb_user" Relationship="ClothingDBModel.FK_tb_invoice_tb_user" FromRole="tb_invoice" ToRole="tb_user" />
+  </EntityType>
+  <Association Name="FK_tb_invoice_tb_user">
+    <End Type="ClothingDBModel.tb_user" Role="tb_user" Multiplicity="0..1" />
+    <End Type="ClothingDBModel.tb_invoice" Role="tb_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_user">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="tb_invoice">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

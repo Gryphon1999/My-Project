@@ -1,0 +1,44 @@
+﻿@model List<Web_App_Clothing_Ecommerce.Models.tb_men>
+
+@{
+    ViewBag.Title = "MenTable";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Men Products Table</h2>
+
+<table class="table table-bordered table-striped">
+    <tr class="table-dark">
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr class="table-hover table-bordered">
+    <td>
+        @Html.DisplayFor(modelItem => item.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.quantity)
+    </td>
+    <td>
+        <img src="~/Image/@item.image" alt="@item.name" width="50" height="50" />
+    </td>
+    <td>
+        <a href="@Url.Action("Edit","Admin",new{id=item.men_id})" class="btn btn-success">Edit</a>
+        <a href="@Url.Action("Delete","Admin",new {item.men_id})" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
+}
+
+</table>

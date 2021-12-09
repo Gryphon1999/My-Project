@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ClothingDBModelStoreContainer" CdmEntityContainer="ClothingDBEntities">
+    <EntitySetMapping Name="tb_admin">
+      <EntityTypeMapping TypeName="ClothingDBModel.tb_admin">
+        <MappingFragment StoreEntitySet="tb_admin">
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_kid">
+      <EntityTypeMapping TypeName="ClothingDBModel.tb_kid">
+        <MappingFragment StoreEntitySet="tb_kid">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="kid_id" ColumnName="kid_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_men">
+      <EntityTypeMapping TypeName="ClothingDBModel.tb_men">
+        <MappingFragment StoreEntitySet="tb_men">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="men_id" ColumnName="men_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_user">
+      <EntityTypeMapping TypeName="ClothingDBModel.tb_user">
+        <MappingFragment StoreEntitySet="tb_user">
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_women">
+      <EntityTypeMapping TypeName="ClothingDBModel.tb_women">
+        <MappingFragment StoreEntitySet="tb_women">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="women_id" ColumnName="women_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_feedback">
+      <EntityTypeMapping TypeName="ClothingDBModel.tb_feedback">
+        <MappingFragment StoreEntitySet="tb_feedback">
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="feed_id" ColumnName="feed_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_invoice">
+      <EntityTypeMapping TypeName="ClothingDBModel.tb_invoice">
+        <MappingFragment StoreEntitySet="tb_invoice">
+          <ScalarProperty Name="in_totalbill" ColumnName="in_totalbill" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="in_id" ColumnName="in_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

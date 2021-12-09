@@ -1,0 +1,35 @@
+﻿@model Web_App_Clothing_Ecommerce.Models.tb_kid
+@{
+    ViewBag.Title = "add_kid_product";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+@using (Html.BeginForm("add_kid_product", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div id="logreg-forms">
+            <form class="form-signin">
+                <div class="form-group">
+                    <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Kid Products</h1>
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(value => value.name, new { required = "", autofocus = "", placeholder = "Product Name", @class = "form-control col-12" })
+                </div>
+                <div class="form-group">
+                    @Html.TextAreaFor(value => value.description, new { required = "", autofocus = "", placeholder = "Description", @class = "form-control col-12" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(value => value.quantity, new { autofocus = "", placeholder = "Quantity", @class = "form-control col-12" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(value => value.price, new { autofocus = "", placeholder = "Price", @class = "form-control col-12" })
+                </div>
+                <div class="form-group">
+                    <input type="file" name="imageFile" required />
+                </div>
+
+                <button class="btn btn-success btn-block btn-lg" type="submit"><i class="fas fa-sign-in-alt"></i> Add</button>
+            </form>
+        </div>
+    </div>
+}
+
